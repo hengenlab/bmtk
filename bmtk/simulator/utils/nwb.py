@@ -126,7 +126,8 @@ class Data(object):
             assert len(data.shape) == 1
             scales = (scales,)
         
-        for key in metadata.iterkeys():
+        # ckbnpython2 for key in metadata.iterkeys():
+        for key in metadata.keys():
             assert isinstance(key, (str, text_type))
         for ii, scale in enumerate(scales):
             if isinstance(scale, Scale):
@@ -471,7 +472,8 @@ def _set_data(parent_group, dataset_name, data, scales, dimension, unit, force=F
     else:
         dataset_group = parent_group[dataset_name]
 
-    for key, val in metadata.iteritems():
+    # ckbnpython2 for key, val in metadata.iteritems():
+    for key, val in metadata.items():
         assert key not in dataset_group.attrs
         dataset_group.attrs[key] = val 
 
